@@ -25,6 +25,23 @@ class Board:
                    self.board[2][2]
         )) 
 
+class SuperBoard:
+    def __init__(self):
+        self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
+
+    def getData(self):
+        print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
+                   self.board[0][0],
+                   self.board[0][1],
+                   self.board[0][2],
+                   self.board[1][0],
+                   self.board[1][1],
+                   self.board[1][2],
+                   self.board[2][0],
+                   self.board[2][1],
+                   self.board[2][2]
+        )) 
+
 class Player:
     def __init__(self, name, sign):
            self.name = name
@@ -75,9 +92,21 @@ print("Welcome to Boter, Kaas en Eieren. To play, first enter two user names.")
 p1 = Player(input("user 1 (who will play as X): "), "X")
 p2 = Player(input("user 2 (who will play as O): "), "O")
 
+# Board variables
+superBoard = Board()
 b1 = Board()
+b2 = Board()
+b3 = Board()
+b4 = Board()
+b5 = Board()
+b6 = Board()
+b7 = Board()
+b8 = Board()
+b9 = Board()
+
+
 print("Initial board:")
-b1.getData()
+superBoard.getData()
 
 print("Enter coordinates one by one. First the X, then the Y.")
 
@@ -86,32 +115,32 @@ finished = False
 while (not finished):
     u1x = int(input(p1.name + " X: "))
     u1y = int(input(p1.name + " Y: "))
-    while inputIsFalse(u1x, u1y, b1):
+    while inputIsFalse(u1x, u1y, superBoard):
         u1x = int(input(p1.name + " X: "))
         u1y = int(input(p1.name + " Y: "))
    
     
-    updateBoard(u1y, u1x, b1, p1)
-    if checkWinner(b1):
+    updateBoard(u1y, u1x, superBoard, p1)
+    if checkWinner(superBoard):
         print(p1.name + " has won!!")
-        b1.getData()
+        superBoard.getData()
         break
 
-    b1.getData()
+    superBoard.getData()
 
     u2x = int(input(p2.name + " X: "))
     u2y = int(input(p2.name + " Y: "))
-    while inputIsFalse(u2x, u2y, b1):
+    while inputIsFalse(u2x, u2y, superBoard):
         u2x = int(input(p2.name + " X: "))
         u2y = int(input(p2.name + " Y: "))
 
-    updateBoard(u2y, u2x, b1, p2)
-    if checkWinner(b1):
+    updateBoard(u2y, u2x, superBoard, p2)
+    if checkWinner(superBoard):
         print(p2.name + " has won!!")
-        b1.getData()
+        superBoard.getData()
         break
     
-    b1.getData()
+    superBoard.getData()
 
 
 # utility functions
