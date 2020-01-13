@@ -13,6 +13,13 @@ class Board():
 		self.winner = "-"
 		self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 
+    def getRawData(self):
+       return "{} {} {}\n{} {} {}\n{} {} {}".format(
+           self.board[0][0], self.board[0][1], self.board[0][2], 
+           self.board[1][0], self.board[1][1], self.board[1][2],
+           self.board[2][0], self.board[2][1], self.board[2][2]
+       )
+
 	def getUpperData(self):
 		return "{} {} {}".format(self.board[0][0], self.board[0][1], self.board[0][2])
 				   
@@ -69,7 +76,7 @@ class Player:
 def updateBoard(y, x, boardObj, player):
    boardObj.board[y][x] = player.sign 
 
-getBoardFromGrid(superBoard, currentBoard):
+def getBoardFromGrid(superBoard: SuperBoard, currentBoard: List[Integer]):
     return superBoard.boardGrid[currentBoard[0], currentBoard[1]]
 
 # tuples to indicate certain locations
@@ -127,35 +134,69 @@ print("Enter coordinates one by one. First the X, then the Y.")
 
 winner = "-"
 finished = False
-currentBoard = [1, 1]
+currentBoard = getBoardFromGrid(superBoard, [1,1])
+currentBoardX = 1
+currentBoardY = 1
+metaBoard = Board()
+
 while (not finished):
+
+    # Player 1
+
     u1x = int(input(p1.name + " X: "))
     u1y = int(input(p1.name + " Y: "))
-    while inputIsFalse(u1x, u1y, superBoard):
+    while inputIsFalse(u1x, u1y, currentBoard):
         u1x = int(input(p1.name + " X: "))
         u1y = int(input(p1.name + " Y: "))
-   
     
-    updateBoard(u1y, u1x, superBoard, p1)
-    if checkWinner(superBoard):
-        print(p1.name + " has won!!")
-        superBoard.getData()
-        break
+    updateBoard(u1y, u1x, currentBoard, p1)
+    
+    # check if the current board has a winner
+    if checkWinner(currentBoard):
+        print(p1.name + " has won this board!")
+        currentBoard.getData()
 
+        # Show who won the board
+        for(x in range(0,3)):
+            for(y in range(0,3)):
+                currentBoard.board[y][x] = "X"
+
+        # check if the entire game has been won
+        updateBoard(currentBoardX, currentBoardY, metaBoard, p1)
+        if checkWinner(metaBoard):
+            print(p1.name + " has won the entire game!")
+            break
+
+    currentBoard = getBoardFromGrid(superBoard, [u1x, u1y])
     superBoard.getData()
+
+    # Player 2
 
     u2x = int(input(p2.name + " X: "))
     u2y = int(input(p2.name + " Y: "))
-    while inputIsFalse(u2x, u2y, superBoard):
+    while inputIsFalse(u2x, u2y, currentBoard):
         u2x = int(input(p2.name + " X: "))
         u2y = int(input(p2.name + " Y: "))
-
-    updateBoard(u2y, u2x, superBoard, p2)
-    if checkWinner(superBoard):
-        print(p2.name + " has won!!")
-        superBoard.getData()
-        break
     
+    updateBoard(u2y, u2x, currentBoard, p2)
+    
+    # check if the current board has a winner
+    if checkWinner(currentBoard):
+        print(p2.name + " has won this board!")
+        currentBoard.getData()
+
+        # Show who won the board
+        for(x in range(0,3)):
+            for(y in range(0,3)):
+                currentBoard.board[y][x] = "X"
+
+        # check if the entire game has been won
+        updateBoard(currentBoardX, currentBoardY, metaBoard, p2)
+        if checkWinner(metaBoard):
+            print(p2.name + " has won the entire game!")
+            break
+
+    currentBoard = getBoardFromGrid(superBoard, [u2x, u2y])
     superBoard.getData()
 
 
