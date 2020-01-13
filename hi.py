@@ -13,25 +13,25 @@ class Board():
 		self.winner = "-"
 		self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 
-	def getData(self):
-		print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
-                   self.board[0][0],
-                   self.board[0][1],
-                   self.board[0][2],
-                   self.board[1][0],
-                   self.board[1][1],
-                   self.board[1][2],
-                   self.board[2][0],
-                   self.board[2][1],
-                   self.board[2][2]
-        )) 
+	def getUpperData(self):
+		return "{0} {1} {2}".format(self.board[0][0], self.board[0][1], self.board[0][2]);
+				   
+	def getMiddleData(self):
+		return "{0} {1} {2}".format(self.board[1][0], self.board[1][1], self.board[1][2]);
+
+	def getLowerData(self):
+		return "{0} {1} {2}".format(self.board[2][0], self.board[2][1], self.board[2][2]);
 
 class SuperBoard():
     def __init__(self):
         self.boardGrid = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
 
     def getData(self):
-        print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
+        print(
+				"{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}" + 
+				"{9} {10} {11} \n{12} {13} {5} \n{6} {7} {8}" +
+				"{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}" +
+					.format(
                    self.boardGrid[0][0].getData(),
                    self.boardGrid[0][1].getData(),
                    self.boardGrid[0][2].getData(),
@@ -97,17 +97,7 @@ p2 = Player("p2", "O")
 
 
 # Board variables
-superBoard = Board()
-b1 = Board()
-b2 = Board()
-b3 = Board()
-b4 = Board()
-b5 = Board()
-b6 = Board()
-b7 = Board()
-b8 = Board()
-b9 = Board()
-
+superBoard = SuperBoard()
 
 print("Initial board:")
 superBoard.getData()
