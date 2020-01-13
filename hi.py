@@ -69,6 +69,9 @@ class Player:
 def updateBoard(y, x, boardObj, player):
    boardObj.board[y][x] = player.sign 
 
+getBoardFromGrid(superBoard, currentBoard):
+    return superBoard.boardGrid[currentBoard[0], currentBoard[1]]
+
 # tuples to indicate certain locations
 # left upper, left middle, left lower
 lu = (0,0) 
@@ -124,6 +127,7 @@ print("Enter coordinates one by one. First the X, then the Y.")
 
 winner = "-"
 finished = False
+currentBoard = [1, 1]
 while (not finished):
     u1x = int(input(p1.name + " X: "))
     u1y = int(input(p1.name + " Y: "))
