@@ -8,13 +8,13 @@ def inputIsFalse(a, b, board):
     else:
         return False
 
-class Board:
-    def __init__(self):
-        self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
+class Board():
+	def __init__(self):
 		self.winner = "-"
+		self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 
-    def getData(self):
-        print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
+	def getData(self):
+		print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
                    self.board[0][0],
                    self.board[0][1],
                    self.board[0][2],
@@ -26,21 +26,21 @@ class Board:
                    self.board[2][2]
         )) 
 
-class SuperBoard:
+class SuperBoard():
     def __init__(self):
-        self.board = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
+        self.boardGrid = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
 
     def getData(self):
         print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
-                   self.board[0][0],
-                   self.board[0][1],
-                   self.board[0][2],
-                   self.board[1][0],
-                   self.board[1][1],
-                   self.board[1][2],
-                   self.board[2][0],
-                   self.board[2][1],
-                   self.board[2][2]
+                   self.boardGrid[0][0].getData(),
+                   self.boardGrid[0][1].getData(),
+                   self.boardGrid[0][2].getData(),
+                   self.boardGrid[1][0].getData(),
+                   self.boardGrid[1][1].getData(),
+                   self.boardGrid[1][2].getData(),
+                   self.boardGrid[2][0].getData(),
+                   self.boardGrid[2][1].getData(),
+                   self.boardGrid[2][2].getData()
         )) 
 
 class Player:
