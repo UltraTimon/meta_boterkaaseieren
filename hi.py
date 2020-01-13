@@ -9,25 +9,25 @@ def inputIsFalse(a, b, board):
         return False
 
 class Board():
-	def __init__(self):
-		self.winner = "-"
-		self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
+    def __init__(self):
+        self.winner = "-"
+        self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 
     def getRawData(self):
-       return "{} {} {}\n{} {} {}\n{} {} {}".format(
-           self.board[0][0], self.board[0][1], self.board[0][2], 
-           self.board[1][0], self.board[1][1], self.board[1][2],
-           self.board[2][0], self.board[2][1], self.board[2][2]
-       )
+        return "{} {} {}\n{} {} {}\n{} {} {}".format(
+            self.board[0][0], self.board[0][1], self.board[0][2], 
+            self.board[1][0], self.board[1][1], self.board[1][2],
+            self.board[2][0], self.board[2][1], self.board[2][2]
+        )
 
-	def getUpperData(self):
-		return "{} {} {}".format(self.board[0][0], self.board[0][1], self.board[0][2])
+    def getUpperData(self):
+        return "{} {} {}".format(self.board[0][0], self.board[0][1], self.board[0][2])
 				   
-	def getMiddleData(self):
-		return "{} {} {}".format(self.board[1][0], self.board[1][1], self.board[1][2])
+    def getMiddleData(self):
+        return "{} {} {}".format(self.board[1][0], self.board[1][1], self.board[1][2])
 
-	def getLowerData(self):
-		return "{} {} {}".format(self.board[2][0], self.board[2][1], self.board[2][2])
+    def getLowerData(self):
+        return "{} {} {}".format(self.board[2][0], self.board[2][1], self.board[2][2])
 
 class SuperBoard():
     def __init__(self):
@@ -76,8 +76,8 @@ class Player:
 def updateBoard(y, x, boardObj, player):
    boardObj.board[y][x] = player.sign 
 
-def getBoardFromGrid(superBoard: SuperBoard, currentBoard: List[Integer]):
-    return superBoard.boardGrid[currentBoard[0], currentBoard[1]]
+def getBoardFromGrid(superBoard, currentBoardX, currentBoardY):
+    return superBoard.boardGrid[currentBoardX][currentBoardY]
 
 # tuples to indicate certain locations
 # left upper, left middle, left lower
@@ -120,8 +120,8 @@ def checkWinner(board):
 print("Welcome to Boter, Kaas en Eieren. To play, first enter two user names.")
 # p1 = Player(input("user 1 (who will play as X): "), "X")
 # p2 = Player(input("user 2 (who will play as O): "), "O")
-p1 = Player("p1", "X")
-p2 = Player("p2", "O")
+p1 = Player("(O player)", "X")
+p2 = Player("(X player)", "O")
 
 
 # Board variables
@@ -134,7 +134,7 @@ print("Enter coordinates one by one. First the X, then the Y.")
 
 winner = "-"
 finished = False
-currentBoard = getBoardFromGrid(superBoard, [1,1])
+currentBoard = getBoardFromGrid(superBoard, 1, 1)
 currentBoardX = 1
 currentBoardY = 1
 metaBoard = Board()
@@ -154,11 +154,11 @@ while (not finished):
     # check if the current board has a winner
     if checkWinner(currentBoard):
         print(p1.name + " has won this board!")
-        currentBoard.getData()
+        currentBoard.getRawData()
 
         # Show who won the board
-        for(x in range(0,3)):
-            for(y in range(0,3)):
+        for x in range(0,3):
+            for y in range(0,3):
                 currentBoard.board[y][x] = "X"
 
         # check if the entire game has been won
@@ -167,7 +167,7 @@ while (not finished):
             print(p1.name + " has won the entire game!")
             break
 
-    currentBoard = getBoardFromGrid(superBoard, [u1x, u1y])
+    currentBoard = getBoardFromGrid(superBoard, u1x, u1y)
     superBoard.getData()
 
     # Player 2
@@ -183,12 +183,12 @@ while (not finished):
     # check if the current board has a winner
     if checkWinner(currentBoard):
         print(p2.name + " has won this board!")
-        currentBoard.getData()
+        currentBoard.getRawData()
 
         # Show who won the board
-        for(x in range(0,3)):
-            for(y in range(0,3)):
-                currentBoard.board[y][x] = "X"
+        for x in range(0,3):
+            for y in range(0,3):
+                currentBoard.board[y][x] = "O"
 
         # check if the entire game has been won
         updateBoard(currentBoardX, currentBoardY, metaBoard, p2)
@@ -196,7 +196,7 @@ while (not finished):
             print(p2.name + " has won the entire game!")
             break
 
-    currentBoard = getBoardFromGrid(superBoard, [u2x, u2y])
+    currentBoard = getBoardFromGrid(superBoard, u2x, u2y)
     superBoard.getData()
 
 
