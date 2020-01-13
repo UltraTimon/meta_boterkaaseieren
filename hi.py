@@ -28,19 +28,19 @@ class SuperBoard():
 
     def getData(self):
         print(
-				"{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}" + 
-				"{9} {10} {11} \n{12} {13} {14} \n{15} {16} {17}" +
-				"{18} {19} {20} \n{21} {22} {23} \n{24} {25} {26}" +
+				"{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}" # + 
+				# "{9} {10} {11} \n{12} {13} {14} \n{15} {16} {17}" +
+				# "{18} {19} {20} \n{21} {22} {23} \n{24} {25} {26}"
 					.format(
-                   self.boardGrid[0][0].getData(),
-                   self.boardGrid[0][1].getData(),
-                   self.boardGrid[0][2].getData(),
-                   self.boardGrid[1][0].getData(),
-                   self.boardGrid[1][1].getData(),
-                   self.boardGrid[1][2].getData(),
-                   self.boardGrid[2][0].getData(),
-                   self.boardGrid[2][1].getData(),
-                   self.boardGrid[2][2].getData()
+                   self.boardGrid[0][0].getUpperData(),
+                   self.boardGrid[0][0].getUpperData(),
+                   self.boardGrid[1][0].getUpperData(),
+                   self.boardGrid[2][0].getMiddleData(),
+                   self.boardGrid[1][0].getMiddleData(),
+                   self.boardGrid[2][0].getMiddleData(),
+                   self.boardGrid[0][0].getLowerData(),
+                   self.boardGrid[1][0].getLowerData(),
+                   self.boardGrid[2][0].getLowerData()
         )) 
 
 class Player:
