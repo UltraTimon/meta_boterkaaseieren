@@ -11,6 +11,7 @@ def inputIsFalse(a, b, board):
 class Board:
     def __init__(self):
         self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
+		self.winner = "-"
 
     def getData(self):
         print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
@@ -27,7 +28,7 @@ class Board:
 
 class SuperBoard:
     def __init__(self):
-        self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
+        self.board = [[Board(),Board(),Board()],[Board(),Board(),Board()],[Board(),Board(),Board()]]
 
     def getData(self):
         print("{0} {1} {2} \n{3} {4} {5} \n{6} {7} {8}".format(
@@ -89,8 +90,11 @@ def checkWinner(board):
     return False
 
 print("Welcome to Boter, Kaas en Eieren. To play, first enter two user names.")
-p1 = Player(input("user 1 (who will play as X): "), "X")
-p2 = Player(input("user 2 (who will play as O): "), "O")
+# p1 = Player(input("user 1 (who will play as X): "), "X")
+# p2 = Player(input("user 2 (who will play as O): "), "O")
+p1 = Player("p1", "X")
+p2 = Player("p2", "O")
+
 
 # Board variables
 superBoard = Board()
