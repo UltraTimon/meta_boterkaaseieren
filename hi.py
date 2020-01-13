@@ -14,13 +14,13 @@ class Board():
 		self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 
 	def getUpperData(self):
-		return "{0} {1} {2}".format(self.board[0][0], self.board[0][1], self.board[0][2]);
+		return "{} {} {}".format(self.board[0][0], self.board[0][1], self.board[0][2])
 				   
 	def getMiddleData(self):
-		return "{0} {1} {2}".format(self.board[1][0], self.board[1][1], self.board[1][2]);
+		return "{} {} {}".format(self.board[1][0], self.board[1][1], self.board[1][2])
 
 	def getLowerData(self):
-		return "{0} {1} {2}".format(self.board[2][0], self.board[2][1], self.board[2][2]);
+		return "{} {} {}".format(self.board[2][0], self.board[2][1], self.board[2][2])
 
 class SuperBoard():
     def __init__(self):
@@ -28,21 +28,37 @@ class SuperBoard():
 
     def getData(self):
         print(
-				"{0} | {1} | {2}\n{3} | {4} | {5}\n{6} | {7} | {8}" +
-				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + 
-				"{9} {10} {11} \n{12} {13} {14} \n{15} {16} {17}" +
-				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + 
-				"{18} {19} {20} \n{21} {22} {23} \n{24} {25} {26}"
+				"{} | {} | {} \n{} | {} | {} \n{} | {} | {} \n~~~~~~~~~~~~~~~~~~~~~~\n{} | {} | {} \n{} | {} | {} \n{} | {} | {} \n~~~~~~~~~~~~~~~~~~~~~~\n{} | {} | {} \n{} | {} | {} \n{} | {} | {}"
 					.format(
                    self.boardGrid[0][0].getUpperData(),
-                   self.boardGrid[0][0].getUpperData(),
                    self.boardGrid[1][0].getUpperData(),
-                   self.boardGrid[2][0].getMiddleData(),
+                   self.boardGrid[2][0].getUpperData(),
+                   self.boardGrid[0][0].getMiddleData(),
                    self.boardGrid[1][0].getMiddleData(),
                    self.boardGrid[2][0].getMiddleData(),
                    self.boardGrid[0][0].getLowerData(),
                    self.boardGrid[1][0].getLowerData(),
-                   self.boardGrid[2][0].getLowerData()
+                   self.boardGrid[2][0].getLowerData(),
+
+                   self.boardGrid[0][1].getUpperData(),
+                   self.boardGrid[1][1].getUpperData(),
+                   self.boardGrid[2][1].getUpperData(),
+                   self.boardGrid[0][1].getMiddleData(),
+                   self.boardGrid[1][1].getMiddleData(),
+                   self.boardGrid[2][1].getMiddleData(),
+                   self.boardGrid[0][1].getLowerData(),
+                   self.boardGrid[1][1].getLowerData(),
+                   self.boardGrid[2][1].getLowerData(),
+                   
+                   self.boardGrid[0][2].getUpperData(),
+                   self.boardGrid[1][2].getUpperData(),
+                   self.boardGrid[2][2].getUpperData(),
+                   self.boardGrid[0][2].getMiddleData(),
+                   self.boardGrid[1][2].getMiddleData(),
+                   self.boardGrid[2][2].getMiddleData(),
+                   self.boardGrid[0][2].getLowerData(),
+                   self.boardGrid[1][2].getLowerData(),
+                   self.boardGrid[2][2].getLowerData()
         )) 
 
 class Player:
