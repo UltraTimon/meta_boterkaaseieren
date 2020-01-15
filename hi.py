@@ -118,12 +118,12 @@ def checkWinner(board):
     return False
 
 print("Welcome to Boter, Kaas en Eieren. To play, first enter two user names.")
-p1 = Player(input("Enter a name for player 1 (who will play as X): "), "X")
-p2 = Player(input("Enter a name for player 2 (who will play as O): "), "O")
+p1 = Player("(X)" + input("Enter a name for player 1 (who will play as X): "), "X")
+p2 = Player("(O)" + input("Enter a name for player 2 (who will play as O): "), "O")
 
 print("If you don't know the rules, read them on: \n https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe \n")
 
-# Board variables
+# Board variable which holds the normal boards
 superBoard = SuperBoard()
 
 print("Initial board:")
