@@ -118,11 +118,10 @@ def checkWinner(board):
     return False
 
 print("Welcome to Boter, Kaas en Eieren. To play, first enter two user names.")
-# p1 = Player(input("user 1 (who will play as X): "), "X")
-# p2 = Player(input("user 2 (who will play as O): "), "O")
-p1 = Player("(O player)", "X")
-p2 = Player("(X player)", "O")
+p1 = Player(input("Enter a name for player 1 (who will play as X): "), "X")
+p2 = Player(input("Enter a name for player 2 (who will play as O): "), "O")
 
+print("If you don't know the rules, read them on: \n https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe \n")
 
 # Board variables
 superBoard = SuperBoard()
@@ -198,7 +197,3 @@ while (not finished):
 
     currentBoard = getBoardFromGrid(superBoard, u2x, u2y)
     superBoard.getData()
-
-
-# utility functions
-
