@@ -166,17 +166,18 @@ while (not finished):
             print(p1.name + " has won the entire game!")
             break
 
-        # This is what the board looks like now:
-        SuperBoard.getData()
+    
+        print("This is what the board looks like now:")
+        superBoard.getData()
 
         # select next board
         print(p2.name + ", which board do you want to play? Select X and Y coordinate:")
-        u1x = input("X: ")
-        u1y = input("Y: ")
+        u1x = int(input("X: "))
+        u1y = int(input("Y: "))
         while(inputIsFalse(u1x, u1y, metaBoard)):
             print("That board is already finished. Please choose again:")
-            u1x = input("X: ")
-            u1y = input("Y: ")
+            u1x = int(input("X: "))
+            u1y = int(input("Y: "))
 
     currentBoard = getBoardFromGrid(superBoard, u1x, u1y)
     superBoard.getData()
@@ -207,17 +208,17 @@ while (not finished):
             print(p2.name + " has won the entire game!")
             break
 
-        # This is what the board looks like now:
-        SuperBoard.getData()
+        print("This is what the board looks like now:")
+        superBoard.getData()
 
         # select next board
         print(p1.name + ", which board do you want to play? Select X and Y coordinate:")
-        u2x = input("X: ")
-        u2y = input("Y: ")
+        u2x = int(input("X: "))
+        u2y = int(input("Y: "))
         while(inputIsFalse(u2x, u2y, metaBoard)):
             print("That board is already finished. Please choose again:")
-            u2x = input("X: ")
-            u2y = input("Y: ")
+            u2x = int(input("X: "))
+            u2y = int(input("Y: "))
 
     currentBoard = getBoardFromGrid(superBoard, u2x, u2y)
     superBoard.getData()
