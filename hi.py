@@ -117,11 +117,11 @@ def checkWinner(board):
             return True
     return False
 
-print("Welcome to Boter, Kaas en Eieren. To play, first enter two user names.")
-p1 = Player("(X)" + input("Enter a name for player 1 (who will play as X): "), "X")
-p2 = Player("(O)" + input("Enter a name for player 2 (who will play as O): "), "O")
+print("Welcome to Ultimate Tic Tac Toe! To play, first enter two user names.")
+p1 = Player("(X) " + input("Enter a name for player 1 (who will play as X): "), "X")
+p2 = Player("(O) " + input("Enter a name for player 2 (who will play as O): "), "O")
 
-print("If you don't know the rules, read them on: \n https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe \n")
+print("If you don't know the rules of Ultimate Tic Tac Toe, read them on: \n https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe \n")
 
 # Board variable which holds the normal boards
 superBoard = SuperBoard()
@@ -166,6 +166,11 @@ while (not finished):
             print(p1.name + " has won the entire game!")
             break
 
+        # select next board
+        print(p2.name + ", which board do you want to play? Select X and Y coordinate:")
+        u1x = input("X: ")
+        u1y = input("Y: ")
+
     currentBoard = getBoardFromGrid(superBoard, u1x, u1y)
     superBoard.getData()
 
@@ -194,6 +199,11 @@ while (not finished):
         if checkWinner(metaBoard):
             print(p2.name + " has won the entire game!")
             break
+
+        # select next board
+        print(p1.name + ", which board do you want to play? Select X and Y coordinate:")
+        u2x = input("X: ")
+        u2y = input("Y: ")
 
     currentBoard = getBoardFromGrid(superBoard, u2x, u2y)
     superBoard.getData()
