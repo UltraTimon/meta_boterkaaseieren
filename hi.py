@@ -170,6 +170,10 @@ while (not finished):
         print(p2.name + ", which board do you want to play? Select X and Y coordinate:")
         u1x = input("X: ")
         u1y = input("Y: ")
+        while(inputIsFalse(u1x, u1y, metaBoard))
+            print("That board is already finished. Please choose again:")
+            u1x = input("X: ")
+            u1y = input("Y: ")
 
     currentBoard = getBoardFromGrid(superBoard, u1x, u1y)
     superBoard.getData()
@@ -204,6 +208,10 @@ while (not finished):
         print(p1.name + ", which board do you want to play? Select X and Y coordinate:")
         u2x = input("X: ")
         u2y = input("Y: ")
+        while(inputIsFalse(u2x, u2y, metaBoard))
+            print("That board is already finished. Please choose again:")
+            u2x = input("X: ")
+            u2y = input("Y: ")
 
     currentBoard = getBoardFromGrid(superBoard, u2x, u2y)
     superBoard.getData()
