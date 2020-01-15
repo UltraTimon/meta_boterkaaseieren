@@ -14,11 +14,11 @@ class Board():
         self.board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 
     def getRawData(self):
-        return "{} {} {}\n{} {} {}\n{} {} {}".format(
+        print("{} {} {}\n{} {} {}\n{} {} {}".format(
             self.board[0][0], self.board[0][1], self.board[0][2], 
             self.board[1][0], self.board[1][1], self.board[1][2],
             self.board[2][0], self.board[2][1], self.board[2][2]
-        )
+        ))
 
     def getUpperData(self):
         return "{} {} {}".format(self.board[0][0], self.board[0][1], self.board[0][2])
@@ -166,11 +166,14 @@ while (not finished):
             print(p1.name + " has won the entire game!")
             break
 
+        # This is what the board looks like now:
+        SuperBoard.getData()
+
         # select next board
         print(p2.name + ", which board do you want to play? Select X and Y coordinate:")
         u1x = input("X: ")
         u1y = input("Y: ")
-        while(inputIsFalse(u1x, u1y, metaBoard))
+        while(inputIsFalse(u1x, u1y, metaBoard)):
             print("That board is already finished. Please choose again:")
             u1x = input("X: ")
             u1y = input("Y: ")
@@ -204,11 +207,14 @@ while (not finished):
             print(p2.name + " has won the entire game!")
             break
 
+        # This is what the board looks like now:
+        SuperBoard.getData()
+
         # select next board
         print(p1.name + ", which board do you want to play? Select X and Y coordinate:")
         u2x = input("X: ")
         u2y = input("Y: ")
-        while(inputIsFalse(u2x, u2y, metaBoard))
+        while(inputIsFalse(u2x, u2y, metaBoard)):
             print("That board is already finished. Please choose again:")
             u2x = input("X: ")
             u2y = input("Y: ")
